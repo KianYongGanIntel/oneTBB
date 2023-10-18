@@ -61,6 +61,9 @@ unset(_tbb_ver_minor)
 include(CheckCXXCompilerFlag)
 include(GNUInstallDirs)
 
+if (!BUILD_SHARED_LIBS)
+    add_definitions(-D__TBB_SOURCE_DIRECTLY_INCLUDED)
+endif()
 # ---------------------------------------------------------------------------------------------------------
 # Handle C++ standard version.
 if (NOT MSVC)  # no need to cover MSVC as it uses C++14 by default.
